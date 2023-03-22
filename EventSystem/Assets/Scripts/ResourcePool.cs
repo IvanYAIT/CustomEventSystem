@@ -14,6 +14,17 @@ public class ResourcePool
         resources.Add(ResourceType.Pineapple, 0);
     }
 
+    public void Add(ResourceType resourceType, int amount) =>
+        resources[resourceType] += amount;
+
+    public void Remove(ResourceType resourceType, int amount)
+    {
+        if (resources[resourceType] >= amount)
+            resources[resourceType] = 0;
+        else
+            resources[resourceType] -= amount;
+    }
+
     public void Reset()
     {
         foreach (ResourceType key in resources.Keys)
@@ -24,7 +35,7 @@ public class ResourcePool
 
 public enum ResourceType
 {
-    Apple,
-    Pineapple,
-    Peer
+    Apple = 0,
+    Pineapple = 1,
+    Peer = 2
 }
