@@ -8,10 +8,12 @@ public class UISwitcher
 {
     private Dictionary<Type, IUIController> states;
     private IUIController currentState;
+    private GameEventController _gameEventController;
 
-    public UISwitcher(StateInitializer stateInitializer, Button mainMenuButton, Button addMenuButton, Button removeMenuButton)
+    public UISwitcher(StateInitializer stateInitializer, Button mainMenuButton, Button addMenuButton, Button removeMenuButton, GameEventController gameEventController)
     {
-        states = stateInitializer.Init(this);
+        _gameEventController = gameEventController;
+        states = stateInitializer.Init(this, gameEventController);
         mainMenuButton.onClick.AddListener(() => ChangeState(typeof(MainMenuController)));
         addMenuButton.onClick.AddListener(() => ChangeState(typeof(AddMenuController)));
         removeMenuButton.onClick.AddListener(() => ChangeState(typeof(RemoveMenuController)));
@@ -19,9 +21,11 @@ public class UISwitcher
 
     public void ChangeState(Type state)
     {
-        if(currentState != null)
+        if (currentState != null)
             currentState.Exit();
         currentState = states[state];
         currentState.Enter();
+        _gameEventController.Invoke();
     }
+
 }

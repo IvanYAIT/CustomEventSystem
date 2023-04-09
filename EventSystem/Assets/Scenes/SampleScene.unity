@@ -916,6 +916,7 @@ GameObject:
   - component: {fileID: 245775719}
   - component: {fileID: 245775721}
   - component: {fileID: 245775720}
+  - component: {fileID: 245775722}
   m_Layer: 5
   m_Name: MainMenuPanel
   m_TagString: Untagged
@@ -935,6 +936,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 270419674}
   - {fileID: 2011415501}
   m_Father: {fileID: 1835178507}
   m_RootOrder: 2
@@ -982,6 +984,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245775718}
   m_CullTransparentMesh: 1
+--- !u!114 &245775722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245775718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ec3ce9549f4db4a8301cc92c210270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &250313506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1072,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250313506}
   m_CullTransparentMesh: 1
+--- !u!1 &270419673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270419674}
+  - component: {fileID: 270419675}
+  m_Layer: 5
+  m_Name: ResourceGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &270419674
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270419673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 245775719}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000013828, y: 0}
+  m_SizeDelta: {x: 501.2762, y: 92.946}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &270419675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270419673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 100, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &297558883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,6 +2430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   removeMenuPanel: {fileID: 2088161906}
   dropdown: {fileID: 1094106215}
+  inputField: {fileID: 1397818024}
+  removeBtn: {fileID: 486025153}
 --- !u!114 &792791176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2368,6 +2445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuPanel: {fileID: 245775718}
+  resetBtn: {fileID: 2011415502}
 --- !u!114 &792791177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2382,8 +2460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   addMenuPanel: {fileID: 1222563747}
   dropdown: {fileID: 1071960307}
-  inputField: {fileID: 0}
-  addBtn: {fileID: 0}
+  inputField: {fileID: 1307290166}
+  addBtn: {fileID: 1595635852}
 --- !u!4 &792791178
 Transform:
   m_ObjectHideFlags: 0
@@ -3193,13 +3271,7 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: Option A
-      m_Image: {fileID: 0}
-    - m_Text: Option B
-      m_Image: {fileID: 0}
-    - m_Text: Option C
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4718,6 +4790,10 @@ MonoBehaviour:
   mainMenuButton: {fileID: 907304152}
   addMenuButton: {fileID: 1865583152}
   removeMenuButton: {fileID: 310558839}
+  cellPrefab: {fileID: 857062438717930779, guid: 0adf5bc88a3d2f546bfc4b7fddb83870, type: 3}
+  grid: {fileID: 270419673}
+  resourceView: {fileID: 245775722}
+  gameEventController: {fileID: 11400000, guid: 934c59d01fc49d14d8a4a5a52576ab7a, type: 2}
 --- !u!4 &1658947302
 Transform:
   m_ObjectHideFlags: 0
@@ -5567,7 +5643,7 @@ RectTransform:
   m_Children:
   - {fileID: 1183303889}
   m_Father: {fileID: 245775719}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

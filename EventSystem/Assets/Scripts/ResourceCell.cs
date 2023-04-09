@@ -5,6 +5,12 @@ using TMPro;
 
 public class ResourceCell : MonoBehaviour
 {
-    public TextMeshProUGUI name;
-    public TextMeshProUGUI amount;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI amountText;
+
+    private ResourcePool _resourcePool;
+
+    public void SetName(string name) => nameText.text = $"{name}";
+
+    public void SetAmount(int amount) => amountText.text = $"{amount}";
 }

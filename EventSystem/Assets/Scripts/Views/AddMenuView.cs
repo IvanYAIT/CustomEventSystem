@@ -1,6 +1,4 @@
 using deVoid.Utils;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -15,7 +13,7 @@ public class AddMenuView : MonoBehaviour
 
     private void Start()
     {
-        dropdown.AddOptions(new List<string> { ResourceType.Apple.ToString(), ResourceType.Peer.ToString(), ResourceType.Pineapple.ToString()});
+        dropdown.AddOptions(new List<string> { ResourceType.Apple.ToString(), ResourceType.Pineapple.ToString(), ResourceType.Peer.ToString()});
         addBtn.onClick.AddListener(Add);
     }
 

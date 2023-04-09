@@ -11,6 +11,10 @@ public class Bootstrapper : MonoBehaviour
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button addMenuButton;
     [SerializeField] private Button removeMenuButton;
+    [SerializeField] private GameObject cellPrefab;
+    [SerializeField] private GameObject grid;
+    [SerializeField] private ResourceView resourceView;
+    [SerializeField] private GameEventController gameEventController;
 
     private ResourcePool _resourcePool;
     private StateInitializer _stateInitializer;
@@ -21,7 +25,8 @@ public class Bootstrapper : MonoBehaviour
         _resourcePool = new ResourcePool();
         _resourcePool.Init();
         _stateInitializer = new StateInitializer(mainMenu, addMenu, removeMenu, _resourcePool);
-        _uISwitcher = new UISwitcher(_stateInitializer, mainMenuButton, addMenuButton, removeMenuButton);
+        resourceView.Construct(cellPrefab, grid, _resourcePool);
+        _uISwitcher = new UISwitcher(_stateInitializer, mainMenuButton, addMenuButton, removeMenuButton, gameEventController);
     }
 
     void Update()

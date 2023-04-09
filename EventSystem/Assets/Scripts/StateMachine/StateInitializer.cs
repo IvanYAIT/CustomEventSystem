@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class StateInitializer
 {
@@ -18,12 +16,12 @@ public class StateInitializer
         _pool = pool;
     }
 
-    public Dictionary<Type, IUIController> Init(UISwitcher uISwitcher)
+    public Dictionary<Type, IUIController> Init(UISwitcher uISwitcher, GameEventController gameEventController)
     {
         Dictionary<Type, IUIController> states = new Dictionary<Type, IUIController>();
-        states.Add(typeof(MainMenuController), new MainMenuController(uISwitcher, _pool, _mainMenu));
-        states.Add(typeof(AddMenuController), new AddMenuController(uISwitcher, _pool, _addMenu));
-        states.Add(typeof(RemoveMenuController), new RemoveMenuController(uISwitcher, _pool, _removeMenu));
+        states.Add(typeof(MainMenuController), new MainMenuController(uISwitcher, _pool, _mainMenu, gameEventController));
+        states.Add(typeof(AddMenuController), new AddMenuController(uISwitcher, _pool, _addMenu, gameEventController));
+        states.Add(typeof(RemoveMenuController), new RemoveMenuController(uISwitcher, _pool, _removeMenu, gameEventController));
         return states;
     }
 }

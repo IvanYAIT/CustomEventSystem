@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourcePool
 {
-    private Dictionary<ResourceType, int> resources;
+    public Dictionary<ResourceType, int> resources { get; private set; }
 
     public void Init()
     {
@@ -19,7 +19,7 @@ public class ResourcePool
 
     public void Remove(ResourceType resourceType, int amount)
     {
-        if (resources[resourceType] >= amount)
+        if (resources[resourceType] <= amount)
             resources[resourceType] = 0;
         else
             resources[resourceType] -= amount;
@@ -27,8 +27,9 @@ public class ResourcePool
 
     public void Reset()
     {
-        foreach (ResourceType key in resources.Keys)
-            resources[key] = 0;
+        for (int i = 0; i < resources.Count; i++)
+            resources[(ResourceType)i] = 0;
+            
     }
 }
 
